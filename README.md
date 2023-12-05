@@ -14,7 +14,7 @@ Write a simple app that let user to search music in iTunes Music. The search res
 - Project structure: GetX
 - Dependency injection: GetIt
 
-## Additional Features
+## Additional Requirements
 
 - Animation/Transition
 - Easy Localisation
