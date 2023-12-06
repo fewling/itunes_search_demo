@@ -37,6 +37,7 @@ class SearchPageMobile extends StatelessWidget {
           return Stack(
             children: [
               _SearchResultList(
+                key: ObjectKey(controller.iTuneResults.value),
                 itemCount: itemCount,
                 controller: controller,
               ),
@@ -87,6 +88,7 @@ class _SearchResultList extends StatelessWidget {
   const _SearchResultList({
     required this.itemCount,
     required this.controller,
+    super.key,
   });
 
   final int itemCount;
@@ -95,14 +97,12 @@ class _SearchResultList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final options = LiveOptions(
-      showItemInterval: 100.milliseconds,
+      showItemInterval: 50.milliseconds,
       showItemDuration: 500.milliseconds,
       visibleFraction: 0.05,
-      reAnimateOnVisibility: true,
     );
 
     return LiveList.options(
-      key: ObjectKey(controller.iTuneResults),
       itemCount: itemCount,
       options: options,
       itemBuilder: (context, index, animation) {
@@ -136,7 +136,6 @@ class _SearchResultList extends StatelessWidget {
                 final trackId = controller.currentTrack.value?.trackId;
                 final isCurrentTrack = trackId == iTuneResult.trackId;
                 return MusicTrackTile(
-                  key: ObjectKey(iTuneResult),
                   iTuneResult: iTuneResult,
                   onTap: () => controller.play(iTuneResult),
                   isPlaying: isCurrentTrack,
