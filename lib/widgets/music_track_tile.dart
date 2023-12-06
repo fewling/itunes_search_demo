@@ -17,6 +17,8 @@ class MusicTrackTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final txtTheme = Theme.of(context).textTheme;
+
     return Material(
       elevation: 2,
       child: ListTile(
@@ -29,7 +31,9 @@ class MusicTrackTile extends StatelessWidget {
             : const Icon(Icons.music_note),
         title: Text(iTuneResult.trackName ?? ''),
         subtitle: Text(iTuneResult.artistName ?? ''),
-        titleTextStyle: const TextStyle(overflow: TextOverflow.ellipsis),
+        titleTextStyle: txtTheme.titleMedium?.copyWith(
+          overflow: TextOverflow.ellipsis,
+        ),
       ),
     );
   }
