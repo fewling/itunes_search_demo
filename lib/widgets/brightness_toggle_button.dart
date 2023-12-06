@@ -11,8 +11,9 @@ class BrightnessToggleIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appController = Get.find<SettingsController>();
+
     return Obx(() {
-      final appController = Get.find<SettingsController>();
       final isDark = appController.isDark.value;
       return IconButton(
         tooltip: I10n.current.brightnessButtonTooltip,
