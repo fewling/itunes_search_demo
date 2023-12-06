@@ -96,11 +96,6 @@ class SearchPageController extends GetxController {
     try {
       final response = await _iTuneService.fetchMusicTrack(terms);
 
-      resultCount.value = response.resultCount;
-      iTuneResults.value = response.results;
-    } on CustomException catch (e) {
-      _showErrorToast(e);
-    } finally {
       // Find the elapsed time of the search
       final end = DateTime.now();
       final elapsed = end.difference(start);
@@ -110,7 +105,12 @@ class SearchPageController extends GetxController {
       if (elapsed < maxGap) {
         await Future.delayed(maxGap - elapsed);
       }
+
       isSearching.value = false;
+      resultCount.value = response.resultCount;
+      iTuneResults.value = response.results;
+    } on CustomException catch (e) {
+      _showErrorToast(e);
     }
   }
 

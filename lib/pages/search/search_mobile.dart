@@ -1,4 +1,3 @@
-import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
@@ -85,7 +84,7 @@ class SearchPageMobile extends StatelessWidget {
   }
 }
 
-class _SearchResultList extends StatelessWidget {
+class _SearchResultList extends StatefulWidget {
   const _SearchResultList({
     required this.iTuneResults,
     this.onSearch,
@@ -100,17 +99,15 @@ class _SearchResultList extends StatelessWidget {
   final void Function(ITuneResult iTuneResult)? onItemTap;
 
   @override
-  Widget build(BuildContext context) {
-    final options = LiveOptions(
-      showItemInterval: 50.milliseconds,
-      showItemDuration: 500.milliseconds,
-      visibleFraction: 0.05,
-    );
+  State<_SearchResultList> createState() => _SearchResultListState();
+}
 
-    return LiveList.options(
-      itemCount: iTuneResults.length + 1,
-      options: options,
-      itemBuilder: (context, index, animation) {
+class _SearchResultListState extends State<_SearchResultList> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: widget.iTuneResults.length + 1,
+      itemBuilder: (context, index) {
         if (index == 0) {
           return Padding(
             padding: const EdgeInsets.only(
@@ -118,30 +115,15 @@ class _SearchResultList extends StatelessWidget {
               right: 16,
               bottom: 8,
             ),
-            child: MusicSearchBar(onSearch: onSearch),
+            child: MusicSearchBar(onSearch: widget.onSearch),
           );
         }
 
-        final iTuneResult = iTuneResults[index - 1];
-        return FadeTransition(
-          opacity: CurvedAnimation(
-            parent: animation,
-            curve: Curves.fastOutSlowIn,
-          ),
-          child: SlideTransition(
-            position: Tween(
-              begin: const Offset(1, 0),
-              end: Offset.zero,
-            ).animate(CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeOutBack,
-            )),
-            child: MusicTrackTile(
-              iTuneResult: iTuneResult,
-              onTap: () => onItemTap?.call(iTuneResult),
-              isPlaying: playingTrackId == iTuneResult.trackId,
-            ),
-          ),
+        final iTuneResult = widget.iTuneResults[index - 1];
+        return MusicTrackTile(
+          iTuneResult: iTuneResult,
+          onTap: () => widget.onItemTap?.call(iTuneResult),
+          isPlaying: widget.playingTrackId == iTuneResult.trackId,
         );
       },
     );
