@@ -6,6 +6,7 @@ import 'package:lottie/lottie.dart';
 
 import '../../controllers/search_page_controller.dart';
 import '../../gen/assets.gen.dart';
+import '../../models/itune_response.dart';
 import '../../widgets/brightness_toggle_button.dart';
 import '../../widgets/loading_widget.dart';
 import '../../widgets/locale_popup_menu.dart';
@@ -38,14 +39,14 @@ class SearchPageMobile extends StatelessWidget {
             children: [
               _SearchResultList(
                 key: ObjectKey(controller.iTuneResults.value),
-                itemCount: itemCount,
-                controller: controller,
+                iTuneResults: controller.iTuneResults.value,
+                playingTrackId: controller.currentTrack.value?.trackId,
+                onSearch: controller.search,
+                onItemTap: controller.play,
               ),
               if (isLoading) const Align(child: LoadingWidget()),
               if (itemCount == 1 && !isLoading)
-                Align(
-                  child: Lottie.asset(Assets.lottie.empty),
-                ),
+                Align(child: Lottie.asset(Assets.lottie.empty)),
             ],
           );
         },
@@ -86,13 +87,17 @@ class SearchPageMobile extends StatelessWidget {
 
 class _SearchResultList extends StatelessWidget {
   const _SearchResultList({
-    required this.itemCount,
-    required this.controller,
+    required this.iTuneResults,
+    this.onSearch,
+    this.onItemTap,
+    this.playingTrackId,
     super.key,
   });
 
-  final int itemCount;
-  final SearchPageController controller;
+  final List<ITuneResult> iTuneResults;
+  final int? playingTrackId;
+  final void Function(String query)? onSearch;
+  final void Function(ITuneResult iTuneResult)? onItemTap;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +108,7 @@ class _SearchResultList extends StatelessWidget {
     );
 
     return LiveList.options(
-      itemCount: itemCount,
+      itemCount: iTuneResults.length + 1,
       options: options,
       itemBuilder: (context, index, animation) {
         if (index == 0) {
@@ -113,10 +118,11 @@ class _SearchResultList extends StatelessWidget {
               right: 16,
               bottom: 8,
             ),
-            child: MusicSearchBar(onSearch: controller.search),
+            child: MusicSearchBar(onSearch: onSearch),
           );
         }
 
+        final iTuneResult = iTuneResults[index - 1];
         return FadeTransition(
           opacity: CurvedAnimation(
             parent: animation,
@@ -130,17 +136,10 @@ class _SearchResultList extends StatelessWidget {
               parent: animation,
               curve: Curves.easeOutBack,
             )),
-            child: Obx(
-              () {
-                final iTuneResult = controller.iTuneResults[index - 1];
-                final trackId = controller.currentTrack.value?.trackId;
-                final isCurrentTrack = trackId == iTuneResult.trackId;
-                return MusicTrackTile(
-                  iTuneResult: iTuneResult,
-                  onTap: () => controller.play(iTuneResult),
-                  isPlaying: isCurrentTrack,
-                );
-              },
+            child: MusicTrackTile(
+              iTuneResult: iTuneResult,
+              onTap: () => onItemTap?.call(iTuneResult),
+              isPlaying: playingTrackId == iTuneResult.trackId,
             ),
           ),
         );
