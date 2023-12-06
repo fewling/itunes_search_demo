@@ -52,6 +52,9 @@ class MusicPlayBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
 
+    final sliderMax = maxDuration.inMilliseconds.toDouble();
+    final sliderValue = sliderMax == 0 ? 0 : position.inMilliseconds;
+
     return ColoredBox(
       color: colorScheme.primaryContainer,
       child: Wrap(
@@ -66,8 +69,8 @@ class MusicPlayBar extends StatelessWidget {
             ),
           ),
           Slider(
-            value: position.inMilliseconds.toDouble(),
-            max: maxDuration.inMilliseconds.toDouble(),
+            value: sliderValue.toDouble(),
+            max: sliderMax,
             inactiveColor: colorScheme.onPrimary,
             onChanged: onSeek,
           ),
