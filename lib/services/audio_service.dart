@@ -31,7 +31,10 @@ class AudioService {
       await _player.setUrl(url);
       await _player.play();
     } catch (e) {
-      throw AudioServicePlaybackException();
+      throw CustomException(
+        exceptionType: CustomExceptionType.audioServicePlay,
+        cause: e,
+      );
     }
   }
 
@@ -39,7 +42,10 @@ class AudioService {
     try {
       await _player.pause();
     } catch (e) {
-      throw AudioServicePauseException();
+      throw CustomException(
+        exceptionType: CustomExceptionType.audioServicePlay,
+        cause: e,
+      );
     }
   }
 
@@ -47,7 +53,10 @@ class AudioService {
     try {
       await _player.stop();
     } catch (e) {
-      throw AudioServiceStopException();
+      throw CustomException(
+        exceptionType: CustomExceptionType.audioServicePlay,
+        cause: e,
+      );
     }
   }
 
@@ -55,7 +64,10 @@ class AudioService {
     try {
       await _player.dispose();
     } catch (e) {
-      throw AudioServiceReleaseException();
+      throw CustomException(
+        exceptionType: CustomExceptionType.audioServicePlay,
+        cause: e,
+      );
     }
   }
 
@@ -63,7 +75,10 @@ class AudioService {
     try {
       await _player.seek(duration);
     } catch (e) {
-      throw AudioServiceSeekException();
+      throw CustomException(
+        exceptionType: CustomExceptionType.audioServicePlay,
+        cause: e,
+      );
     }
   }
 

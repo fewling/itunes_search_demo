@@ -20,6 +20,9 @@ dependencies:
   oktoast: ^3.4.0
   responsive_builder: ^0.7.0
   lottie: ^2.7.0
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +35,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
     - assets/lottie/
+
+flutter_intl:
+  enabled: true
+  class_name: I10n
+  main_locale: en
+  output_dir: lib/l10n/generated

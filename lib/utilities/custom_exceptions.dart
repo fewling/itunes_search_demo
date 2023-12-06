@@ -1,59 +1,37 @@
 import 'package:flutter/foundation.dart';
+import 'package:get_it/get_it.dart';
 
-abstract class CustomException implements Exception {
+import '../l10n/generated/l10n.dart';
+
+final _l10n = GetIt.I.get<I10n>();
+
+enum CustomExceptionType {
+  iTunesSearch,
+  audioServicePlay,
+  audioServicePause,
+  audioServiceRelease,
+  audioServiceSeek,
+}
+
+class CustomException implements Exception {
   CustomException({
-    this.message,
+    required this.exceptionType,
     this.cause,
   });
 
-  final String? message;
+  final CustomExceptionType exceptionType;
   final Object? cause;
 
   @override
   String toString() {
-    final msg = message ?? 'Something went wrong';
+    final msg = switch (exceptionType) {
+      CustomExceptionType.iTunesSearch => _l10n.iTuneSearchErrorMessage,
+      CustomExceptionType.audioServicePlay => _l10n.audioPlayErrorMsg,
+      CustomExceptionType.audioServicePause => _l10n.audioPauseErrorMsg,
+      CustomExceptionType.audioServiceRelease => _l10n.audioReleaseErrorMsg,
+      CustomExceptionType.audioServiceSeek => _l10n.audioSeekErrorMsg,
+    };
+
     return kDebugMode ? '$msg\n' 'Cause: $cause' : msg;
   }
-}
-
-class ITunesSearchException extends CustomException {
-  ITunesSearchException({
-    super.message = 'Could not complete search request',
-    super.cause,
-  });
-}
-
-class AudioServicePlaybackException extends CustomException {
-  AudioServicePlaybackException({
-    super.message = 'Error playing audio',
-    super.cause,
-  });
-}
-
-class AudioServicePauseException extends CustomException {
-  AudioServicePauseException({
-    super.message = 'Error pausing audio',
-    super.cause,
-  });
-}
-
-class AudioServiceStopException extends CustomException {
-  AudioServiceStopException({
-    super.message = 'Error stopping audio',
-    super.cause,
-  });
-}
-
-class AudioServiceReleaseException extends CustomException {
-  AudioServiceReleaseException({
-    super.message = 'Error releasing audio',
-    super.cause,
-  });
-}
-
-class AudioServiceSeekException extends CustomException {
-  AudioServiceSeekException({
-    super.message = 'Error seeking audio',
-    super.cause,
-  });
 }

@@ -1,0 +1,46 @@
+{
+  "searchHint": "您想搜索什么？",
+  "@searchHint": {
+    "description": "搜索页面搜索栏的提示文本。"
+  },
+
+  "clearAllTooltip": "清除全部",
+  "@clearAllTooltip": {
+    "description": "搜索栏清除全部按钮的工具提示。"
+  },
+
+  "searchButtonTooltip": "搜索",
+  "@searchButtonTooltip": {
+    "description": "搜索栏搜索按钮的工具提示。"
+  },
+
+  "generalErrorMessage": "出了点问题，请稍后重试。",
+  "@generalErrorMessage": {
+    "description": "发生错误时的错误提示信息。"
+  },
+
+  "iTuneSearchErrorMessage": "搜索音乐时出错，请稍后重试。",
+  "@iTuneSearchErrorMessage": {
+    "description": "搜索音乐时发生错误的错误提示信息。"
+  },
+
+  "audioPlayErrorMsg": "播放音频时出错，请稍后重试。",
+  "@audioPlayErrorMsg": {
+    "description": "播放音频时发生错误的错误提示信息。"
+  },
+
+  "audioPauseErrorMsg": "暂停/停止音频时出错，请稍后重试。",
+  "@audioPauseErrorMsg": {
+    "description": "暂停/停止音频时发生错误的错误提示信息。"
+  },
+
+  "audioReleaseErrorMsg": "释放音频时出错，请稍后重试。",
+  "@audioReleaseErrorMsg": {
+    "description": "释放音频时发生错误的错误提示信息。"
+  },
+
+  "audioSeekErrorMsg": "搜索音频时出错，请稍后重试。",
+  "@audioSeekErrorMsg": {
+    "description": "搜索音频时发生错误的错误提示信息。"
+  }
+}

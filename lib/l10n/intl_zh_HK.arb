@@ -1,0 +1,46 @@
+{
+  "searchHint": "您想搜索什麼？",
+  "@searchHint": {
+    "description": "搜索頁面搜索欄的提示文字。"
+  },
+
+  "clearAllTooltip": "清除全部",
+  "@clearAllTooltip": {
+    "description": "搜索欄清除全部按鈕的工具提示。"
+  },
+
+  "searchButtonTooltip": "搜索",
+  "@searchButtonTooltip": {
+    "description": "搜索欄搜索按鈕的工具提示。"
+  },
+
+  "generalErrorMessage": "發生錯誤。請稍後再試。",
+  "@generalErrorMessage": {
+    "description": "出現錯誤時的錯誤訊息。"
+  },
+
+  "iTuneSearchErrorMessage": "搜尋音樂時發生錯誤，請稍後再試。",
+  "@iTuneSearchErrorMessage": {
+    "description": "搜尋音樂時出現錯誤的訊息。"
+  },
+
+  "audioPlayErrorMsg": "播放音頻時發生錯誤，請稍後再試。",
+  "@audioPlayErrorMsg": {
+    "description": "播放音頻時出現錯誤的訊息。"
+  },
+
+  "audioPauseErrorMsg": "暫停/停止音頻時發生錯誤，請稍後再試。",
+  "@audioPauseErrorMsg": {
+    "description": "暫停/停止音頻時出現錯誤的訊息。"
+  },
+
+  "audioReleaseErrorMsg": "釋放音頻時發生錯誤，請稍後再試。",
+  "@audioReleaseErrorMsg": {
+    "description": "釋放音頻時出現錯誤的訊息。"
+  },
+
+  "audioSeekErrorMsg": "定位音頻時發生錯誤，請稍後再試。",
+  "@audioSeekErrorMsg": {
+    "description": "定位音頻時出現錯誤的訊息。"
+  }
+}

@@ -98,12 +98,8 @@ class SearchPageController extends GetxController {
 
       resultCount.value = response.resultCount;
       iTuneResults.value = response.results;
-    } catch (e) {
-      final exception = ITunesSearchException(
-        message: 'Error searching for music',
-        cause: e,
-      );
-      _showErrorToast(exception);
+    } on CustomException catch (e) {
+      _showErrorToast(e);
     } finally {
       // Find the elapsed time of the search
       final end = DateTime.now();
@@ -125,9 +121,8 @@ class SearchPageController extends GetxController {
     currentTrack.value = result;
     try {
       await _audioService.play(result.previewUrl!);
-    } catch (e) {
-      final exception = AudioServicePlaybackException(cause: e);
-      _showErrorToast(exception);
+    } on CustomException catch (e) {
+      _showErrorToast(e);
     }
   }
 
@@ -135,9 +130,8 @@ class SearchPageController extends GetxController {
   Future<void> togglePlay() async {
     try {
       await _audioService.toggle();
-    } catch (e) {
-      final exception = AudioServicePlaybackException(cause: e);
-      _showErrorToast(exception);
+    } on CustomException catch (e) {
+      _showErrorToast(e);
     }
   }
 
@@ -149,9 +143,8 @@ class SearchPageController extends GetxController {
 
     try {
       await _audioService.seek(position);
-    } catch (e) {
-      final exception = AudioServiceSeekException(cause: e);
-      _showErrorToast(exception);
+    } on CustomException catch (e) {
+      _showErrorToast(e);
     }
   }
 

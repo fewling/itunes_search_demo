@@ -1,6 +1,7 @@
 # Generated codes
 *.freezed.dart
 *.g.dart
+/lib/l10n/generated
 
 # Miscellaneous
 *.class
