@@ -1,0 +1,61 @@
+{
+    "searchHint": "What do you like to search?",
+    "@searchHint": {
+      "description": "Hint text for the search bar in Search page."
+    },
+  
+    "clearAllTooltip": "Clear all",
+    "@clearAllTooltip": {
+      "description": "Tooltip for the clear all button in Search bar."
+    },
+  
+    "searchButtonTooltip": "Search",
+    "@searchButtonTooltip": {
+      "description": "Tooltip for the search button in Search bar."
+    },
+
+    "brightnessButtonTooltip": "Brightness",
+    "@brightnessButtonTooltip": {
+      "description": "Tooltip for the brightness button in Search bar."
+    },
+
+    "localeButtonTooltip": "Locale",
+    "@localeButtonTooltip": {
+      "description": "Tooltip for the locale button in Search bar."
+    },
+
+    "restartPrompt": "Please restart app to apply changes.",
+    "@restartPrompt": {
+      "description": "Prompt to restart app to apply changes."
+    },
+  
+    "generalErrorMessage": "Something went wrong, please try again later.",
+    "@generalErrorMessage": {
+      "description": "Error message when there is an error."
+    },
+  
+    "iTuneSearchErrorMessage": "Error searching for music, please try again later.",
+    "@iTuneSearchErrorMessage": {
+      "description": "Error message when there is an error searching for music."
+    },
+  
+    "audioPlayErrorMsg": "Error playing audio, please try again later.",
+    "@audioPlayErrorMsg": {
+      "description": "Error message when there is an error playing audio."
+    },
+  
+    "audioPauseErrorMsg": "Error pausing/stopping audio, please try again later.",
+    "@audioPauseErrorMsg": {
+      "description": "Error message when there is an error pausing/stopping audio."
+    },
+  
+    "audioReleaseErrorMsg": "Error releasing audio, please try again later.",
+    "@audioReleaseErrorMsg": {
+      "description": "Error message when there is an error releasing audio."
+    },
+  
+    "audioSeekErrorMsg": "Error seeking audio, please try again later.",
+    "@audioSeekErrorMsg": {
+      "description": "Error message when there is an error seeking audio."
+    }
+  }

@@ -5,7 +5,9 @@ import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../gen/assets.gen.dart';
+import '../../widgets/brightness_toggle_button.dart';
 import '../../widgets/loading_widget.dart';
+import '../../widgets/locale_popup_menu.dart';
 import '../../widgets/music_play_bar.dart';
 import '../../widgets/music_search_bar.dart';
 import '../../widgets/music_track_tile.dart';
@@ -21,6 +23,10 @@ class SearchPageMobile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('iTunes Search Demo'),
+        actions: const [
+          BrightnessToggleIconButton(),
+          LocalePopupMenu(),
+        ],
       ),
       body: Obx(
         () {

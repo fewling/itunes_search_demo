@@ -14,6 +14,21 @@
     "description": "搜索欄搜索按鈕的工具提示。"
   },
 
+  "brightnessButtonTooltip": "亮度模式",
+  "@brightnessButtonTooltip": {
+    "description": "搜索欄中亮度模式按鈕的工具提示。"
+  },
+
+  "localeButtonTooltip": "語言",
+  "@localeButtonTooltip": {
+    "description": "搜索欄中語言環境按鈕的工具提示。"
+  },
+
+  "restartPrompt": "請重新啟動應用程式以套用更改。",
+    "@restartPrompt": {
+      "description": "重新啟動應用程式以套用更改的提示。"
+    },
+
   "generalErrorMessage": "發生錯誤。請稍後再試。",
   "@generalErrorMessage": {
     "description": "出現錯誤時的錯誤訊息。"
