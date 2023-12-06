@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../controllers/search_page_controller.dart';
 import 'search_desktop.dart';
 import 'search_mobile.dart';
-import 'search_page_controller.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});

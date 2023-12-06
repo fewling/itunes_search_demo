@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'search_page_controller.dart';
+import '../../controllers/search_page_controller.dart';
 
 /// The desktop version of the search page.
 /// As for demonstration purposes, this page is not implemented.

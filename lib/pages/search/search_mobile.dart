@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../controllers/search_page_controller.dart';
 import '../../gen/assets.gen.dart';
 import '../../widgets/brightness_toggle_button.dart';
 import '../../widgets/loading_widget.dart';
@@ -11,7 +12,6 @@ import '../../widgets/locale_popup_menu.dart';
 import '../../widgets/music_play_bar.dart';
 import '../../widgets/music_search_bar.dart';
 import '../../widgets/music_track_tile.dart';
-import 'search_page_controller.dart';
 
 class SearchPageMobile extends StatelessWidget {
   const SearchPageMobile(this.controller, {super.key});

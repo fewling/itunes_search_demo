@@ -5,11 +5,11 @@ import 'package:get_it/get_it.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:oktoast/oktoast.dart';
 
-import '../../models/itune_response.dart';
-import '../../services/audio_service.dart';
-import '../../services/itune_service.dart';
-import '../../utilities/custom_exceptions.dart';
-import '../../widgets/error_toast_widget.dart';
+import '../models/itune_response.dart';
+import '../services/audio_service.dart';
+import '../services/itune_service.dart';
+import '../utilities/custom_exceptions.dart';
+import '../widgets/error_toast_widget.dart';
 
 /// A controller for the search pages (mobile and desktop)
 /// This controller is responsible for handling the search logic and
