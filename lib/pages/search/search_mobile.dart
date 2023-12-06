@@ -84,7 +84,7 @@ class SearchPageMobile extends StatelessWidget {
   }
 }
 
-class _SearchResultList extends StatefulWidget {
+class _SearchResultList extends StatelessWidget {
   const _SearchResultList({
     required this.iTuneResults,
     this.onSearch,
@@ -99,14 +99,9 @@ class _SearchResultList extends StatefulWidget {
   final void Function(ITuneResult iTuneResult)? onItemTap;
 
   @override
-  State<_SearchResultList> createState() => _SearchResultListState();
-}
-
-class _SearchResultListState extends State<_SearchResultList> {
-  @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: widget.iTuneResults.length + 1,
+      itemCount: iTuneResults.length + 1,
       itemBuilder: (context, index) {
         if (index == 0) {
           return Padding(
@@ -115,15 +110,18 @@ class _SearchResultListState extends State<_SearchResultList> {
               right: 16,
               bottom: 8,
             ),
-            child: MusicSearchBar(onSearch: widget.onSearch),
+            child: MusicSearchBar(onSearch: onSearch),
           );
         }
 
-        final iTuneResult = widget.iTuneResults[index - 1];
-        return MusicTrackTile(
-          iTuneResult: iTuneResult,
-          onTap: () => widget.onItemTap?.call(iTuneResult),
-          isPlaying: widget.playingTrackId == iTuneResult.trackId,
+        final iTuneResult = iTuneResults[index - 1];
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 2),
+          child: MusicTrackTile(
+            iTuneResult: iTuneResult,
+            onTap: () => onItemTap?.call(iTuneResult),
+            isPlaying: playingTrackId == iTuneResult.trackId,
+          ),
         );
       },
     );
