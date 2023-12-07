@@ -30,7 +30,10 @@ Write a simple app that let user to search music in iTunes Music. The search res
 
 1. Clone this repo.
 
-2. Run the following commands in the project root directory.
+2. Install [Flutter Intl VSCode Extension](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl).\
+   This extension is responsible to generate localisation files, so localisation can be used without a `BuildContext` in the project.
+
+3. Run the following commands in the project root directory.
 
     ```bash
     flutter pub get
